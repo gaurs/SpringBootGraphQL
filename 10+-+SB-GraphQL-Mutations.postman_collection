@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "2f9ef882-9cb7-4f5c-94af-ed7d9ead7b3c",
+		"name": "SB-GraphQL-Mutations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1829000"
+	},
+	"item": [
+		{
+			"name": "EditAccounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  editAccount(\r\n    account: {clientId: 102,\r\n      currency: USD,\r\n      balance: 800.0,\r\n      id: 1,\r\n      status: \"Active\"}\r\n  ) {\r\n        id\r\n        client {\r\n            id\r\n            firstName\r\n            lastName\r\n        }\r\n        currency\r\n        balance\r\n        status\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query  {\r\n  accounts {\r\n    id\r\n    currency\r\n    balance\r\n    status\r\n    client{\r\n      id\r\n      firstName\r\n      middleName\r\n      lastName\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAccounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    addAccount(account: {\r\n        clientId: 101,\r\n        currency: USD,\r\n        balance: 500.0,\r\n        status: \"Active\"\r\n    })\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAccounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n\tdeleteAccount (id: 1)\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
