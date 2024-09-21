@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "bfda067d-0000-448d-945f-a4505c1a5bfb",
+		"name": "SB-GraphQL-Queries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1829000"
+	},
+	"item": [
+		{
+			"name": "Fragments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "fragment bankAccountDetails on BankAccount {\r\n   id\r\n   currency\r\n   balance\r\n}\r\n\r\n\r\nquery {\r\n   accounts {\r\n       ...bankAccountDetails\r\n       status\r\n   }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query  {\r\n  accounts {\r\n    id\r\n    currency\r\n    balance\r\n    status\r\n    client{\r\n      id\r\n      firstName\r\n      middleName\r\n      lastName\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alias -and fragments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "fragment clientDetails on Client {\r\n    id\r\n    firstName\r\n    lastName\r\n}\r\n\r\nfragment accountDetails on BankAccount {\r\n    id\r\n    currency\r\n    balance\r\n    client {\r\n        ...clientDetails\r\n    }\r\n}\r\n\r\nquery {\r\n    userAccounts: accounts {\r\n        ...accountDetails\r\n    }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query with Alias",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    userAccounts: accounts {\r\n        id\r\n        balance\r\n        currency\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
