@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "1e86852d-1355-4319-aa7c-f68887f1900a",
+		"name": "SB-GraphQL-Global-Exceptions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1829000"
+	},
+	"item": [
+		{
+			"name": "AddAccounts-Client-not-found-Controller-handler",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    addAccount(account: {\r\n        clientId: 200,\r\n        currency: EUR,\r\n        balance: 500.0,\r\n        country: \"FR\",\r\n        transferLimit: 500\r\n        status: \"Active\",\r\n        accountCreateDate: \"2023-12-22T16:39:57-08:00\"\r\n    })\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAccounts-valid-account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    addAccount(account: {\r\n        clientId: 100,\r\n        currency: EUR,\r\n        balance: 500.0,\r\n        country: \"FR\",\r\n        transferLimit: 500\r\n        status: \"Inactive\",\r\n        accountCreateDate: \"2023-12-22T16:39:57-08:00\"\r\n    })\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAccounts-one-valid-ine-invalid-account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    aValidAccount: addAccount(account: {\r\n        clientId: 100,\r\n        currency: EUR,\r\n        balance: 500.0,\r\n        country: \"FR\",\r\n        transferLimit: 500\r\n        status: \"Inactive\",\r\n        accountCreateDate: \"2023-12-22T16:39:57-08:00\"\r\n    })\r\n\r\n    anInvalidAccount: addAccount(account: {\r\n        clientId: 5000,\r\n        currency: CAD,\r\n        country: \"IN\",\r\n        transferLimit: 1000\r\n        balance: 5000.0,\r\n        status: \"Active\",\r\n        accountCreateDate: \"2023-12-23T16:39:57-08:00\"\r\n    })\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts One - Valid One-Invalid-Global-Handler",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetMultipleAccounts($validAccountId: ID!, $invalidAccountId: ID!) {\r\n    validAccount: accountById(accountId: $validAccountId) {\r\n        ...BankAccountDetails\r\n    }\r\n    invalidAccount: accountById(accountId: $invalidAccountId) {\r\n        ...BankAccountDetails\r\n    }\r\n}\r\n\r\nfragment BankAccountDetails on BankAccountType {\r\n    id\r\n    currency\r\n    client{\r\n      id\r\n      firstName\r\n      middleName\r\n      lastName\r\n    }\r\n    transferLimit\r\n    accountCreateDate\r\n}\r\n",
+						"variables": "{\r\n    \"validAccountId\": \"1\",\r\n    \"invalidAccountId\": \"100\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
