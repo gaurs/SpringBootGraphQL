@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "98be4403-3ce4-4e17-bb1f-884226e34761",
+		"name": "Project : Deposit Account Management  MicroService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1829000"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Add-Account-1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n    addAccount(account: {\r\n        accountId: \"A100\",\r\n        accountType: CHECKING,\r\n        accountNumber: \"123456789\",\r\n        accountNumberDisplay: \"1234-567-89\",\r\n        nickName: \"Emergency Fund\",\r\n        status: OPEN,\r\n        description: \"High-yield savings account for emergency funds.\",\r\n        lineOfBusiness: \"Retail Banking\",\r\n        routingTransitNumber: \"111000025\",\r\n        interestRate: 1.5,\r\n        interestRateType: FIXED,\r\n        interestRateAsOf: \"2024-01-19T16:39:57-08:00\",\r\n        currency: \"USD\",\r\n        lastActivityDate: \"2024-01-19T16:39:57-08:00\",\r\n        balanceAsOf: \"2024-01-19T16:39:57-08:00\",\r\n        currentBalance: 3445,\r\n        openingDayBalance: 4444,\r\n        availableBalance: 79872,\r\n        annualPercentageYield: 1.54,\r\n        interestYtd: 5,\r\n        term: null,\r\n        maturityDate: null\r\n    })\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add-Account-2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n    addAccount(account: {\r\n        accountId: \"A101\",\r\n        accountType: CD,\r\n        accountNumber: \"123456789\",\r\n        accountNumberDisplay: \"1234-567-89\",\r\n        nickName: \"Emergency Fund - Water Dammage\",\r\n        status: CLOSED\r\n        description: \"High-yield savings account for emergency funds.  Water Dammage\",\r\n        lineOfBusiness: \"Personal Banking\",\r\n        routingTransitNumber: \"222222222\",\r\n        interestRate: 2.5,\r\n        interestRateType: FIXED,\r\n        interestRateAsOf: \"2024-01-19T16:39:57-08:00\",\r\n        currency: \"CAD\",\r\n        lastActivityDate: \"2024-01-19T16:39:57-08:00\",\r\n        balanceAsOf: \"2024-01-19T16:39:57-08:00\",\r\n        currentBalance: 234243,\r\n        openingDayBalance: 1212,\r\n        availableBalance: 565656,\r\n        annualPercentageYield: 1.55,\r\n        interestYtd: 4,\r\n        term: null,\r\n        maturityDate: null\r\n    })\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add-Account-3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n    addAccount(account: {\r\n        accountId: \"A102\",\r\n        accountType: LOAN,\r\n        accountNumber: \"112233445\",\r\n        accountNumberDisplay: \"1122-334-45\",\r\n        nickName: \"Long-term Savings\",\r\n        status: PENDINGOPEN,\r\n        description: \"Certificate of Deposit for long-term savings.\",\r\n        lineOfBusiness: \" Banking Loan\",\r\n        routingTransitNumber: \"111000027\",\r\n        interestRate: 2.5,\r\n        interestRateType: FIXED,\r\n        interestRateAsOf: \"2024-01-20T00:00:00Z\",\r\n        currency: \"USD\",\r\n        lastActivityDate: \"2024-01-25T00:00:00Z\",\r\n        balanceAsOf: \"2024-02-10T00:00:00Z\",\r\n        currentBalance: 10000,\r\n        openingDayBalance: 10000,\r\n        availableBalance: 10000,\r\n        annualPercentageYield: 2.5,\r\n        interestYtd: 50,\r\n        term: 12,\r\n        maturityDate: \"2025-01-20T00:00:00Z\"\r\n    })\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Accounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getAllAccounts {\r\n      accountId\r\n      accountType\r\n      accountNumber\r\n      accountNumberDisplay\r\n      nickName\r\n      status\r\n      description\r\n      lineOfBusiness\r\n      routingTransitNumber\r\n      interestRate\r\n      interestRateType\r\n      interestRateAsOf\r\n      currency\r\n      lastActivityDate\r\n      balanceAsOf\r\n      currentBalance\r\n      openingDayBalance\r\n      availableBalance\r\n      annualPercentageYield\r\n      interestYtd\r\n      term\r\n      maturityDate\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit-Accounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "\r\nmutation {\r\n  editAccount(account: {\r\n    accountId: \"1\",\r\n    accountType: CHECKING,\r\n    accountNumber: \"123456789\",\r\n    accountNumberDisplay: \"1234-567-89\",\r\n    nickName: \"Emergency Fund\",\r\n    status: OPEN,\r\n    description: \"High-yield savings account for emergency funds.\",\r\n    lineOfBusiness: \"Wholesale Banking\",\r\n    routingTransitNumber: \"111000025\",\r\n    interestRate: 1.5,\r\n    interestRateType: FIXED,\r\n    interestRateAsOf: \"2024-01-19T16:39:57-08:00\",\r\n    currency: \"INR\",\r\n    lastActivityDate: \"2024-01-19T16:39:57-08:00\",\r\n    balanceAsOf: \"2024-01-19T16:39:57-08:00\",\r\n    currentBalance: 5000,\r\n    openingDayBalance: 5000,\r\n    availableBalance: 5000,\r\n    annualPercentageYield: 1.5,\r\n    interestYtd: 10,\r\n    term: 2,\r\n    maturityDate: \"2024-01-19T16:39:57-08:00\"\r\n  }){\r\n    accountId\r\n    currency\r\n    currentBalance\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit-Accounts-using-variables",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "\r\nmutation EditAccountToChangeAccountStatus ($accountVar :DepositAccountInput!){\r\n  editAccount(account: $accountVar){\r\n    accountId\r\n    currency\r\n    currentBalance\r\n    status\r\n    description\r\n  }\r\n}",
+								"variables": "{\r\n    \"accountVar\" :{\r\n        \"accountId\": \"1\",\r\n        \"accountType\" : \"CHECKING\",\r\n        \"accountNumber\": \"123456789\",\r\n        \"accountNumberDisplay\": \"1234-567-89\",\r\n        \"nickName\": \"Emergency Fund\",\r\n        \"status\": \"PENDINGCLOSE\",\r\n        \"description\": \"High-yield savings account for emergency funds. Updated!\",\r\n        \"lineOfBusiness\": \"Wholesale Banking\",\r\n        \"routingTransitNumber\": \"111000025\",\r\n        \"interestRate\": 1.5,\r\n        \"interestRateType\": \"FIXED\",\r\n        \"interestRateAsOf\": \"2024-01-19T16:39:57-08:00\",\r\n        \"currency\": \"INR\",\r\n        \"lastActivityDate\": \"2024-01-19T16:39:57-08:00\",\r\n        \"balanceAsOf\": \"2024-01-19T16:39:57-08:00\",\r\n        \"currentBalance\": 5000,\r\n        \"openingDayBalance\": 5000,\r\n        \"availableBalance\": 5000,\r\n        \"annualPercentageYield\": 1.5,\r\n        \"interestYtd\": 10,\r\n        \"term\": 2,\r\n        \"maturityDate\": \"2024-01-19T16:39:57-08:00\"\r\n    }\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Account-id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  getAccountById(accountID:\"A100\") {\r\n    accountId\r\n    accountType\r\n    accountNumber\r\n    accountNumberDisplay\r\n    nickName\r\n    status\r\n    description\r\n    lineOfBusiness\r\n    routingTransitNumber\r\n    interestRate\r\n    interestRateType\r\n    interestRateAsOf\r\n    currency\r\n    lastActivityDate\r\n    balanceAsOf\r\n    currentBalance\r\n    openingDayBalance\r\n    availableBalance\r\n    annualPercentageYield\r\n    interestYtd\r\n    term\r\n    maturityDate\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Account-id-Using-GQL-Valriables",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query AccountsByIdQuery ($accountIdVar: ID!) {\r\n  getAccountById(accountID:   $accountIdVar) {\r\n    accountId\r\n    accountType\r\n    accountNumber\r\n    accountNumberDisplay\r\n    nickName\r\n    status\r\n    description\r\n    lineOfBusiness\r\n    routingTransitNumber\r\n    interestRate\r\n    interestRateType\r\n    interestRateAsOf\r\n    currency\r\n    lastActivityDate\r\n    balanceAsOf\r\n    currentBalance\r\n    openingDayBalance\r\n    availableBalance\r\n    annualPercentageYield\r\n    interestYtd\r\n    term\r\n    maturityDate\r\n  }\r\n}",
+								"variables": "{\r\n    \"accountIdVar\" : \"A100\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get-Transaction-by-id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  getTransactionById(accountId:\"A100\"){\r\n      transactionId\r\n      description\r\n      account {\r\n      accountId\r\n      accountType\r\n      accountNumber\r\n      accountNumberDisplay\r\n      nickName\r\n      status\r\n      description\r\n      lineOfBusiness\r\n      routingTransitNumber\r\n      interestRate\r\n      interestRateType\r\n      interestRateAsOf\r\n      currency\r\n      lastActivityDate\r\n      \r\n      ... on DepositAccount {\r\n        balanceAsOf\r\n        currentBalance\r\n        openingDayBalance\r\n        availableBalance\r\n        annualPercentageYield\r\n        interestYtd\r\n        term\r\n        maturityDate\r\n      }\r\n    }\r\n      status\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Transaction-by-id-with-variables",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetTransactionByAccountId ($accountIdVar: ID!){\r\n  getTransactionById(accountId:$accountIdVar){\r\n      transactionId\r\n      description\r\n      account {\r\n      accountId\r\n      accountType\r\n      accountNumber\r\n      accountNumberDisplay\r\n      nickName\r\n      status\r\n      description\r\n      lineOfBusiness\r\n      routingTransitNumber\r\n      interestRate\r\n      interestRateType\r\n      interestRateAsOf\r\n      currency\r\n      lastActivityDate\r\n      \r\n      ... on DepositAccount {\r\n        balanceAsOf\r\n        currentBalance\r\n        openingDayBalance\r\n        availableBalance\r\n        annualPercentageYield\r\n        interestYtd\r\n        term\r\n        maturityDate\r\n      }\r\n    }\r\n      status\r\n    }\r\n}",
+								"variables": "{\r\n    \"accountIdVar\": \"A100\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add-Transactions-1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n  addTransaction(transaction: {\r\n    accountId: \"A100\",\r\n    transactionId: \"TX1000\",\r\n    postedTimestamp: \"2024-02-15T12:00:00Z\",\r\n    transactionTimestamp: \"2024-02-15T08:00:00Z\",\r\n    description: \"Monthly salary\",\r\n    status: POSTED,\r\n    amount: 3000.00,\r\n    transactionType: CHECK\r\n  })\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add-Transactions-2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n  addTransaction(transaction: {\r\n    accountId: \"A100\",\r\n    transactionId: \"TX1001\",\r\n    postedTimestamp: \"2024-02-15T12:00:00Z\",\r\n    transactionTimestamp: \"2024-02-15T08:00:00Z\",\r\n    description: \"Monthly salary - Adjustment Amount\",\r\n    status: POSTED,\r\n    amount: 200.00,\r\n    transactionType: FEE\r\n  })\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add-Transactions-3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n  addTransaction(transaction: {\r\n    accountId: \"A100\",\r\n    transactionId: \"TX1002\",\r\n    postedTimestamp: \"2024-02-15T12:00:00Z\",\r\n    transactionTimestamp: \"2024-02-15T08:00:00Z\",\r\n    description: \"Divident erned from TELUS shares\",\r\n    status: POSTED,\r\n    amount: 100.00,\r\n    transactionType: DIVIDEND\r\n  })\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add-Transactions-4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n  addTransaction(transaction: {\r\n    accountId: \"A102\",\r\n    transactionId: \"TX1005\",\r\n    postedTimestamp: \"2024-02-15T12:00:00Z\",\r\n    transactionTimestamp: \"2024-02-15T08:00:00Z\",\r\n    description: \"Monthly Fee for Gym Memership\",\r\n    status: POSTED,\r\n    amount: 100.00,\r\n    transactionType: FEE\r\n  })\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
